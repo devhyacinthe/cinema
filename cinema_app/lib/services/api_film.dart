@@ -7,17 +7,17 @@ class ApiFilm {
     var uri = Uri.https('movies-app1.p.rapidapi.com', '/api/movies');
 
     final response = await http.get(uri, headers: {
-      "X-RapidAPI-Host": "movies-app1.p.rapidapi.com'",
+      "X-RapidAPI-Host": "movies-app1.p.rapidapi.com",
       "X-RapidAPI-Key": "0e235a2720msh5958d2502933a91p1d4a10jsn4e240b8a872e",
       "useQueryString": "true"
     });
 
     Map data = jsonDecode(response.body);
     List _temp = [];
-    for (data in data['results']) {
-      _temp.add(data);
+    for (var i = 0; i < data['results'].length; i++) {
+      _temp.add(data['results'][i]);
     }
-
+    print(_temp);
     return FilmModel.FilmModelFromSnapshot(_temp);
   }
 }

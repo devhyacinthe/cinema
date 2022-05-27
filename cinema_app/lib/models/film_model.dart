@@ -4,8 +4,8 @@ class FilmModel {
   final String rating;
   final String year;
   final String description;
-  final List<String> genres;
-  final List<String> countries;
+  final String genres;
+  final String countries;
   final String sortie;
   final String lien;
 
@@ -27,10 +27,10 @@ class FilmModel {
       rating: json['rating'] as String,
       year: json['year'] as String,
       description: json['description'] as String,
-      genres: json['genres'] as List<String>,
-      countries: json['countries'] as List<String>,
+      genres: json['genres'][0]['name'] as String,
+      countries: json['countries'][0]['name'] as String,
       sortie: json['release'] as String,
-      lien: json['embedUrls']['urls'] as String,
+      lien: json['embedUrls'][3]['url'] as String,
     );
   }
 

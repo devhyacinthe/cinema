@@ -1,5 +1,4 @@
 import 'package:cinema_app/colors/app_colors.dart';
-import 'package:cinema_app/models/film_model.dart';
 import 'package:cinema_app/widgets/film_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

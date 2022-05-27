@@ -1,3 +1,4 @@
+import 'package:cinema_app/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class FilmCard extends StatelessWidget {
@@ -29,8 +30,14 @@ class FilmCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(6),
       child: Card(
-        elevation: 8,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
+        clipBehavior: Clip.antiAlias,
+        color: AppColors.backgroundApp,
+        elevation: 0,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Container(
@@ -40,10 +47,15 @@ class FilmCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8))),
             ),
             const SizedBox(
-              height: 12,
+              height: 17,
             ),
-            Row(
-              children: [Text(title)],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Text(title, style: const TextStyle(color: Colors.white))
+                ],
+              ),
             )
           ],
         ),

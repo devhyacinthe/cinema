@@ -14,8 +14,8 @@ class ApiFilm {
 
     Map data = jsonDecode(response.body);
     List _temp = [];
-    for (var i = 0; i < data['results'].length; i++) {
-      _temp.add(data['results'][i]);
+    for (var i in data['results']) {
+      _temp.add(i);
     }
     print(_temp);
     return FilmModel.FilmModelFromSnapshot(_temp);

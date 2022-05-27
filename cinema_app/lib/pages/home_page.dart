@@ -7,7 +7,8 @@ import 'package:provider/provider.dart';
 import '../providers/film_provider.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
     filmProvider.getFilms();
 
     return Scaffold(
+        backgroundColor: AppColors.backgroundApp,
         appBar: AppBar(
           excludeHeaderSemantics: true,
           toolbarHeight: 64,
@@ -33,6 +35,7 @@ class HomePage extends StatelessWidget {
               : GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
+                  itemCount: filmProvider.getListFilms.length,
                   itemBuilder: (((context, index) {
                     return FilmCard(
                         filmImage: value.getListFilms[index].filmImage,
